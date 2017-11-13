@@ -121,8 +121,8 @@ MEDIA_URL = env.str('MEDIA_URL', default='/media/')
 '''
 Static files
 '''
-STATIC_ROOT = env.path('MEDIA_ROOT', default=data_dir.path('static')(), required=True)()
-STATIC_URL = env.str('MEDIA_URL', default='/static/')
+STATIC_ROOT = env.path('STATIC_ROOT', default=data_dir.path('static')(), required=True)()
+STATIC_URL = env.str('STATIC_URL', default='/static/')
 
 
 '''
