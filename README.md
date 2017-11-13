@@ -1,6 +1,11 @@
-# Project
+# Django Boilerplate
 
-*[Description]*
+- Tested with Python 3 only
+- Environment variables (or `.env` file) for configuration
+- Basic health check endpoint
+- Configs for flake8, pydocstyle, and editorconfig
+- Circus deployment for managing processes
+- Complete separation of runtime files (static/media files, logs, file-based cache, etc.)
 
 ## Requirements
 
