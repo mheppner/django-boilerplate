@@ -6,6 +6,7 @@
 - Configs for flake8, pydocstyle, and editorconfig
 - Circus deployment for managing processes
 - Complete separation of runtime files (static/media files, logs, file-based cache, etc.)
+- Basic Dockerfile
 
 ## Requirements
 
@@ -52,4 +53,19 @@ circusctl
 
 # kill everything
 kill `cat data/run/circusd.pid`
+```
+
+## Docker
+
+A Dockerfile is included that provides the full HTTP application, with bindings for pylibmc and PostgreSQL. To greatly reduce the container size, remove Nginx, PostgreSQL/psycopg2, and libmemcached/pylibmc. Be sure to migrate the database before starting.
+
+```sh
+mkdir -p /tmp/django-data/{cache,logs,media,run}
+
+docker run -it \
+    -v /tmp/django-data:/app/data \
+    -p 8080:80 \
+    -e SECRET_KEY=yoursecretkey \
+    -e ALLOWED_HOSTS=yourdomainname.com \
+    username/image
 ```
